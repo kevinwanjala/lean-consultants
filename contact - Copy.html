@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DreamTemplate</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="blok_header">
+    <div class="header">
+      <div class="logo"> <a href="index.html"><img src="images/logo.gif" width="150" height="70" border="0" alt="logo" class="one" /></a> </div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html"><span>Home Page </span></a></li>
+          <li><a href="services.html"><span>Services</span></a></li>
+          <li><a href="services.html"><span>Portfolio</span></a></li>
+          <li><a href="about.html"><span> About Us </span></a></li>
+          <li><a href="contact.html" class="active"><span> Contact Us</span></a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="rss"><a href="#"><img src="images/rss_3.gif" alt="rss" width="16" height="16" border="0" /></a> <a href="#"><img src="images/rss_2.gif" alt="rss" width="16" height="16" border="0" /></a> <a href="#"><img src="images/rss_1.gif" alt="rss" width="16" height="16" border="0" /></a> Follow us on social network</div>
+      <div class="text">Click here to live Support  Tell Free <a href="#">1-111-123-456-789</a></div>
+      <div class="clr"></div>
+      <h3>Contact Us</h3>
+      <div class="search">
+        <form id="form1" name="form1" method="post" action="">
+          <label><span>
+            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
+            </span>
+            <input name="b" type="image" src="images/search.gif" class="button" />
+          </label>
+        </form>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="body_resize">
+    <div class="body">
+      <div class="left">
+        <h2>We are currently available for hire... contact us!<br />
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</span></h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <h2>Drop us a message</h2>
+        <form action="contact.php" method="post" id="contactform">
+          <ol>
+            <li>
+              <label for="name">First Name <span class="red">*</span></label>
+              <input id="name" name="name" class="text" />
+            </li>
+            <li>
+              <label for="email">Your email <span class="red">*</span></label>
+              <input id="email" name="email" class="text" />
+            </li>
+            <li>
+              <label for="company">Company</label>
+              <input id="company" name="company" class="text" />
+            </li>
+            <li>
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" class="text" />
+            </li>
+            <li>
+              <label for="message">Message <span class="red">*</span></label>
+              <textarea id="message" name="message" rows="6" cols="50"></textarea>
+            </li>
+            <li class="buttons">
+              <input type="image" name="imageField" id="imageField" src="images/send.gif" class="send" />
+              <div class="clr"></div>
+            </li>
+          </ol>
+        </form>
+      </div>
+      <div class="right">
+        <h2>Contact details<br />
+          <span>Lorem ipsum dolor sit amet, consectetur</span></h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+        <p><a href="#">Office</a> : +91-99876543102<br />
+          <a href="#">Cell</a> : +91-99876543102<br />
+          <a href="#">Email</a> : email@yourdomain.com</p>
+        <h2>Email support</h2>
+        <p><a href="#">Office</a> : +91-99876543102<br />
+          <a href="#">Cell</a> : +91-99876543102<br />
+          <a href="#">Email</a> : email@yourdomain.com</p>
+        <h2>Testimonials<br />
+          <span>Lorem ipsum dolor sit amet, consectetur</span></h2>
+        <p> <em>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridicu lus mus.”<br />
+          <strong>- John Doe, companyname.com </strong></em></p>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="FBG_blog">
+    <div class="FBG_blog_resize"> <a href="#"><img src="images/contact.gif" alt="contact" width="131" height="40" border="0" /></a>
+      <div class="recent">
+        <p>Your company's welcome message or slogan. Lorem ipsum dolor sit amet, consectur el.<br />
+          <span> Donec metus lacus, porta id, auctor sit amet, aliquam eu, lacus. Quisque sagittis vulputate orci. </span> </p>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer_resize">
+    <p class="leftt">© Copyright websitename . All Rights Reserved. <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">RSS </a></p>
+    <p class="right">(DT) <a href="http://www.dreamtemplate.com/">Web Templates</a></p>
+    <div class="clr"></div>
+  </div>
+  <div class="clr"></div>
+</div>
+</body>
+</html>
